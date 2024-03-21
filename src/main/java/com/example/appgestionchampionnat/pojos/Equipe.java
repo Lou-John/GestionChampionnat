@@ -133,20 +133,12 @@ public class Equipe {
         this.stade = stade;
     }
 
-    public List<Match> getMatchs1() {
-        return matchs1;
+    public List<Match> getMatchs() {
+        return matchs;
     }
 
-    public void setMatchs1(List<Match> matchs1) {
-        this.matchs1 = matchs1;
-    }
-
-    public List<Match> getMatchs2() {
-        return matchs2;
-    }
-
-    public void setMatchs2(List<Match> matchs2) {
-        this.matchs2 = matchs2;
+    public void setMatchs(List<Match> matchs) {
+        this.matchs = matchs;
     }
 
     public List<Championnat> getChampionnats() {

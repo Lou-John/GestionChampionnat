@@ -89,7 +89,7 @@ public class Stade {
     }
 
     @Override
-    public String toString() {
+    public String   toString() {
         return "Stade{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
