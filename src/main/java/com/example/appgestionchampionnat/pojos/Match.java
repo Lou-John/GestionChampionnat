@@ -22,7 +22,7 @@ public class Match {
     @ManyToOne
     private Equipe equipe2;
 
-    public Match(Long pointsEquipe1, Long pointsEquipe2, Journee journee, Stade stade, Equipe equipe1, Equipe equipe2) {
+    public Match(Long pointsEquipe, Long pointsEquipe2, Journee journee, Stade stade, Equipe equipe1, Equipe equipe2) {
         this.pointsEquipe1 = pointsEquipe1;
         this.pointsEquipe2 = pointsEquipe2;
         this.journee = journee;

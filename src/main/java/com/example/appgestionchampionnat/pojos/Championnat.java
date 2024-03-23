@@ -23,7 +23,7 @@ public class Championnat {
     private Pays pays;
     @OneToMany(mappedBy = "championnat")
     private List<Journee> journees;
-    @ManyToMany(mappedBy = "championnat")
+    @ManyToMany(mappedBy = "championnats")
     private List<Equipe> equipes;
 
     public Championnat(String nom, String logo, Date dateDebut, Date dateFin, int pointGagne, int pointPerdu, int pointNul, String typeCLassement, Pays pays, List<Journee> journees, List<Equipe> equipes) {

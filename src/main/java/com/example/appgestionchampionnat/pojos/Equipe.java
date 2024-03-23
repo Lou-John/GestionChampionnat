@@ -24,7 +24,7 @@ public class Equipe {
     private Stade stade;
     @OneToMany(mappedBy = "equipe")
     private List<Match> matchs;
-    @ManyToMany(mappedBy = "equipe")
+    @ManyToMany(mappedBy = "equipes")
     private List<Championnat> championnats;
 
     public Equipe(String nom, String logo, Date dateCreation, String nomEntraineur, String president, String statut, String siege, String telephone, String siteWeb, Stade stade, List<Match> matchs, List<Championnat> championnats) {
