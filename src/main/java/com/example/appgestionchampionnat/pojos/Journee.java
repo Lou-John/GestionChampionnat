@@ -10,7 +10,6 @@ public class Journee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private Long numero;
     @OneToMany(mappedBy = "journee")
     private List<Match> matchs;

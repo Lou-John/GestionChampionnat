@@ -9,7 +9,7 @@ import java.util.List;
 public class Equipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long equipe_id;
 
     private String nom;
     private String logo;
@@ -22,12 +22,12 @@ public class Equipe {
     private String siteWeb;
     @ManyToOne
     private Stade stade;
-    @OneToMany(mappedBy = "equipe")
+    @ManyToMany()
     private List<Match> matchs;
-    @ManyToMany(mappedBy = "equipes")
-    private List<Championnat> championnats;
+    @ManyToOne
+    private Championnat championnat;
 
-    public Equipe(String nom, String logo, Date dateCreation, String nomEntraineur, String president, String statut, String siege, String telephone, String siteWeb, Stade stade, List<Match> matchs, List<Championnat> championnats) {
+    public Equipe(String nom, String logo, Date dateCreation, String nomEntraineur, String president, String statut, String siege, String telephone, String siteWeb, Stade stade, List<Match> matchs, Championnat championnat) {
         this.nom = nom;
         this.logo = logo;
         this.dateCreation = dateCreation;
@@ -39,18 +39,18 @@ public class Equipe {
         this.siteWeb = siteWeb;
         this.stade = stade;
         this.matchs = matchs;
-        this.championnats = championnats;
+        this.championnat = championnat;
     }
 
     public Equipe() {
     }
 
     public Long getId() {
-        return id;
+        return equipe_id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.equipe_id = equipe_id;
     }
 
     public String getNom() {
@@ -141,18 +141,17 @@ public class Equipe {
         this.matchs = matchs;
     }
 
-    public List<Championnat> getChampionnats() {
-        return championnats;
+    public Championnat getChampionnat() {
+        return championnat;
     }
 
-    public void setChampionnats(List<Championnat> championnats) {
-        this.championnats = championnats;
+    public void setChampionnat(Championnat championnat) {
+        this.championnat = championnat;
     }
 
     @Override
     public String toString() {
         return "Equipe{" +
-                "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", logo='" + logo + '\'' +
                 ", dateCreation=" + dateCreation +

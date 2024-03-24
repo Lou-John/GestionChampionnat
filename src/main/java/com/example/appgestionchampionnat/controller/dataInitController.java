@@ -41,40 +41,6 @@ public class dataInitController {
         paysService.ajouterPays(pays4);
         paysService.ajouterPays(pays5);
 
-        // Create and persist Championnat
-        Championnat championnat1 = new Championnat(
-                "La Liga",
-                "la_liga_logo.png",
-                new Date(2024, 8, 15),
-                new Date(2024, 12, 20),
-                3,
-                0,
-                1,
-                "Différence",
-                pays3,
-                new ArrayList<>(),
-                new ArrayList<>()
-        );
-        championnat1.getEquipes().add(equipe1);
-        championnat1.getEquipes().add(equipe2);
-
-        Championnat championnat2 = new Championnat(
-                "Primera División Argentina",
-                "primera_division_argentina_logo.png",
-                new Date(2024, 7, 20),
-                new Date(2024, 11, 25),
-                3,
-                0,
-                1,
-                "Marqués",
-                pays2, // Assuming pays2 represents Argentina
-                new ArrayList<>(), // Assuming no journees are created yet
-                new ArrayList<>()  // List of equipes
-        );
-        championnat2.getEquipes().add(equipe3);
-        championnat2.getEquipes().add(equipe4);
-
-
         // Create and persist Stade
         Stade stade1 = new Stade("Santiago Bernabéu", "Av. de Concha Espina, 1, 28036 Madrid, Spain", 81044L, "+34 913 46 14 00", new ArrayList<>(), new ArrayList<>());
         Stade stade2 = new Stade("Camp Nou", "Carrer d'Aristides Maillol, s/n, 08028 Barcelona, Spain", 99354L, "+34 902 18 99 00", new ArrayList<>(), new ArrayList<>());
@@ -96,78 +62,118 @@ public class dataInitController {
         stadeService.ajouterStade(stade9);
         stadeService.ajouterStade(stade10);
 
+        // Create and persist Championnat
+        Championnat championnat1 = new Championnat(
+                "La Liga",
+                "la_liga_logo.png",
+                new Date(2024, 8, 15),
+                new Date(2024, 12, 20),
+                3,
+                0,
+                1,
+                "Différence",
+                pays3,
+                new ArrayList<>(),
+                new ArrayList<>()
+        );
+
+
+        Championnat championnat2 = new Championnat(
+                "Primera División Argentina",
+                "primera_division_argentina_logo.png",
+                new Date(2024, 7, 20),
+                new Date(2024, 11, 25),
+                3,
+                0,
+                1,
+                "Marqués",
+                pays2, // Assuming pays2 represents Argentina
+                new ArrayList<>(), // Assuming no journees are created yet
+                new ArrayList<>()  // List of equipes
+        );
+
+        Championnat championnat3 = new Championnat(
+                "Premier League",
+                "premier_league_logo.png",
+                new Date(2024, 8, 10),
+                new Date(2025, 5, 22),
+                3,
+                0,
+                1,
+                "Marqués",
+                pays4,
+                new ArrayList<>(), // Assuming no journees are created yet
+                new ArrayList<>()  // List of equipes
+        );
+
+        Championnat championnat4 = new Championnat(
+                "Ligue 1",
+                "ligue_1_logo.png",
+                new Date(2024, 8, 7),
+                new Date(2025, 5, 29),
+                3,
+                0,
+                1,
+                "Marqués",
+                pays1, // Assuming pays6 represents France
+                new ArrayList<>(), // Assuming no journees are created yet
+                new ArrayList<>()  // List of equipes
+        );
 
 
 
         // Create and persist Equipe
-        Equipe equipe1 = new Equipe("Real Madrid", "real_madrid_logo.png", new Date(1902, 3, 6), "Carlo Ancelotti", "Florentino Pérez", "Società per azioni", "Av. Concha Espina, 1, 28036 Madrid, Spain", "123456789", "https://www.realmadrid.com/", stade1, new ArrayList<>(), new ArrayList<>());
-        Equipe equipe2 = new Equipe("FC Barcelona", "barcelona_logo.png", new Date(1899, 11, 29), "Xavi Hernandez", "Joan Laporta", "Club", "Carrer d'Aristides Maillol, s/n, 08028 Barcelona, Spain", "987654321", "https://www.fcbarcelona.com/", stade2, new ArrayList<>(), new ArrayList<>());
-        Equipe equipe3 = new Equipe("River Plate", "river_plate_logo.png", new Date(1901, 5, 25), "Marcelo Gallardo", "Rodolfo D'Onofrio", "Società Anonima Sportiva", "Avenida Figueroa Alcorta 7597, Ciudad Autónoma de Buenos Aires, Argentina", "123456789", "https://www.cariverplate.com.ar/", stade3, new ArrayList<>(), new ArrayList<>());// Teams
-        Equipe equipe4 = new Equipe("Manchester United", "manchester_united_logo.png", new Date(1878, 12, 5), "Ralf Rangnick", "Joel Glazer", "Limited company", "Sir Matt Busby Way, Old Trafford, Manchester M16 0RA, United Kingdom", "+44 161 868 8000", "https://www.manutd.com/", stade4, new ArrayList<>(), new ArrayList<>());
-        Equipe equipe5 = new Equipe("Liverpool", "liverpool_logo.png", new Date(1892, 3, 15), "Jürgen Klopp", "Tom Werner", "Club", "Anfield Road, Liverpool L4 0TH, United Kingdom", "+44 151 260 6677", "https://www.liverpoolfc.com/", stade5, new ArrayList<>(), new ArrayList<>());
-        Equipe equipe6 = new Equipe("Paris Saint-Germain", "psg_logo.png", new Date(1970, 8, 12), "Mauricio Pochettino", "Nasser Al-Khelaifi", "Société anonyme", "24 Rue du Commandant Guilbaud, 75016 Paris, France", "+33 1 47 43 71 71", "https://en.psg.fr/", stade6, new ArrayList<>(), new ArrayList<>());
-        Equipe equipe7 = new Equipe("Bayern Munich", "bayern_munich_logo.png", new Date(1900, 2, 27), "Julian Nagelsmann", "Herbert Hainer", "Aktiengesellschaft", "Werner-Heisenberg-Allee 25, 80939 München, Germany", "+49 89 699310", "https://fcbayern.com/", stade7, new ArrayList<>(), new ArrayList<>());
-        Equipe equipe8 = new Equipe("Juventus", "juventus_logo.png", new Date(1897, 11, 1), "Massimiliano Allegri", "Andrea Agnelli", "Società per azioni", "Corso Gaetano Scirea, 50, 10151 Torino TO, Italy", "+39 011 65631", "https://www.juventus.com/", stade8, new ArrayList<>(), new ArrayList<>());
-        Equipe equipe9 = new Equipe("AC Milan", "ac_milan_logo.png", new Date(1899, 12, 13), "Stefano Pioli", "Paolo Scaroni", "Società per azioni", "Via Aldo Rossi, 8, 20149 Milano MI, Italy", "+39 02 6228 1", "https://www.acmilan.com/", stade9, new ArrayList<>(), new ArrayList<>());
-        Equipe equipe10 = new Equipe("Manchester City", "manchester_city_logo.png", new Date(1880, 4, 13), "Pep Guardiola", "Khaldoon Al Mubarak", "Limited company", "Etihad Stadium, Ashton New Rd, Manchester M11 3FF, United Kingdom", "+44 161 444 1894", "https://www.mancity.com/", stade10, new ArrayList<>(), new ArrayList<>());Equipe equipe11 = new Equipe("Arsenal", "arsenal_logo.png", new Date(1886, 12, 1), "Mikel Arteta", "Stan Kroenke", "Club", "75 Drayton Park, London N5 1BU, United Kingdom", "+44 20 7619 5003", "https://www.arsenal.com/", stade2, new ArrayList<>(), new ArrayList<>());Equipe equipe11 = new Equipe("Atletico Madrid", "atletico_madrid_logo.png", new Date(1903, 4, 26), "Diego Simeone", "Enrique Cerezo", "Sociedad Anónima Deportiva", "Paseo Virgen del Puerto, 67, 28005 Madrid, Spain", "+34 91 366 4707", "https://en.atleticodemadrid.com/", stade1, new ArrayList<>(), new ArrayList<>());
+        Equipe equipe1 = new Equipe("Real Madrid", "real_madrid_logo.png", new Date(1902, 3, 6), "Carlo Ancelotti", "Florentino Pérez", "Società per azioni", "Av. Concha Espina, 1, 28036 Madrid, Spain", "123456789", "https://www.realmadrid.com/", stade1, new ArrayList<>(), championnat1);
+        Equipe equipe2 = new Equipe("FC Barcelona", "barcelona_logo.png", new Date(1899, 11, 29), "Xavi Hernandez", "Joan Laporta", "Club", "Carrer d'Aristides Maillol, s/n, 08028 Barcelona, Spain", "987654321", "https://www.fcbarcelona.com/", stade2, new ArrayList<>(), championnat1);
+        Equipe equipe10 = new Equipe("Atletico Madrid", "atletico_madrid_logo.png", new Date(1903, 4, 26), "Diego Simeone", "Enrique Cerezo", "Società per azioni", "Paseo Virgen del Puerto, 67, 28005 Madrid, Spain", "987654321", "https://www.atleticodemadrid.com/", stade3, new ArrayList<>(), championnat1);
+        Equipe equipe3 = new Equipe("River Plate", "river_plate_logo.png", new Date(1901, 5, 25), "Marcelo Gallardo", "Rodolfo D'Onofrio", "Società Anonima Sportiva", "Avenida Figueroa Alcorta 7597, Ciudad Autónoma de Buenos Aires, Argentina", "123456789", "https://www.cariverplate.com.ar/", stade3, new ArrayList<>(), championnat2);// Teams
+        Equipe equipe4 = new Equipe("Manchester United", "manchester_united_logo.png", new Date(1878, 12, 5), "Ralf Rangnick", "Joel Glazer", "Limited company", "Sir Matt Busby Way, Old Trafford, Manchester M16 0RA, United Kingdom", "+44 161 868 8000", "https://www.manutd.com/", stade4, new ArrayList<>(), championnat3);
+        Equipe equipe5 = new Equipe("Liverpool", "liverpool_logo.png", new Date(1892, 3, 15), "Jürgen Klopp", "Tom Werner", "Club", "Anfield Road, Liverpool L4 0TH, United Kingdom", "+44 151 260 6677", "https://www.liverpoolfc.com/", stade5, new ArrayList<>(), championnat3);
+        Equipe equipe6 = new Equipe("Paris Saint-Germain", "psg_logo.png", new Date(1970, 8, 12), "Mauricio Pochettino", "Nasser Al-Khelaifi", "Société anonyme", "24 Rue du Commandant Guilbaud, 75016 Paris, France", "+33 1 47 43 71 71", "https://en.psg.fr/", stade6, new ArrayList<>(), championnat4);
         equipeService.ajouterEquipe(equipe1);
         equipeService.ajouterEquipe(equipe2);
         equipeService.ajouterEquipe(equipe3);
         equipeService.ajouterEquipe(equipe4);
         equipeService.ajouterEquipe(equipe5);
         equipeService.ajouterEquipe(equipe6);
-        equipeService.ajouterEquipe(equipe7);
-        equipeService.ajouterEquipe(equipe8);
-        equipeService.ajouterEquipe(equipe9);
-        equipeService.ajouterEquipe(equipe10);
+
+        // Add teams to the championships
+        championnat1.setEquipe(equipe1);
+        championnat1.setEquipe(equipe2);
+        championnat1.setEquipe(equipe10);
+        championnat2.setEquipe(equipe3);
+        championnat3.setEquipe(equipe4);
+        championnat3.setEquipe(equipe5);
 
 
 
-        // Ajout des équipes aux championnats
-        List<Equipe> equipeList = new ArrayList<>();
-        equipeList.add(equipe1);
-        equipeList.add(equipe2);
-        championnat1.setEquipes(equipeList);
-
-
-
-        //String nom, String logo, Date "dateCreation", String nomEntraineur, String president, String statut, String siege, String telephone, String siteWeb, Stade stade, List<Match> matchs, List<Championnat> championnats
-// Create and persist Journee
-        Journee journee1 = new Journee();
+        // Create and persist Journee
+        Journee journee1 = new Journee(1L, new ArrayList<>(), championnat1);
         journeeService.ajouterJournee(journee1);
-
-        Journee journee2 = new Journee();
-        journeeService.ajouterJournee(journee2);
-
+        Journee journee2 = new Journee(2L, new ArrayList<>(), championnat1);
+        journeeService.ajouterJournee(journee1);
+        Journee journee3 = new Journee(1L, new ArrayList<>(), championnat2);
+        journeeService.ajouterJournee(journee1);
 
 
 // Create and persist Match
-        Match match1 = new Match();
-        match1.setEquipe1(equipe1);
-        match1.setEquipe2(equipe2);
-        match1.setStade(stade1);
-        match1.setJournee(journee1);
+        List<Equipe> equipesList1 = new ArrayList<>();
+        equipesList1.add(equipe1);
+        equipesList1.add(equipe2);
+        Match match1 = new Match(2L, 1L, journee1, stade1, equipesList1);
         matchService.ajouterMatch(match1);
 
-        Match match2 = new Match();
-        match2.setEquipe1(equipe3);
-        match2.setEquipe2(equipe4);
-        match2.setStade(stade3);
-        match2.setJournee(journee1);
+        List<Equipe> equipesList2 = new ArrayList<>();
+        equipesList2.add(equipe1);
+        equipesList2.add(equipe2);
+        Match match2 = new Match(2L, 2L, journee2, stade1, equipesList2);
         matchService.ajouterMatch(match2);
 
-        Match match3 = new Match();
-        match3.setEquipe1(equipe1);
-        match3.setEquipe2(equipe3);
-        match3.setStade(stade2);
-        match3.setJournee(journee2);
+        List<Equipe> equipesList3 = new ArrayList<>();
+        equipesList3.add(equipe1);
+        equipesList3.add(equipe2);
+        Match match3 = new Match(3L, 0L, journee3, stade3, equipesList3);
         matchService.ajouterMatch(match3);
 
-        Match match4 = new Match();
-        match4.setEquipe1(equipe2);
-        match4.setEquipe2(equipe4);
-        match4.setStade(stade4);
-        match4.setJournee(journee2);
-        matchService.ajouterMatch(match4);
     }
 }

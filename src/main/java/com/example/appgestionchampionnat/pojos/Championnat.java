@@ -23,7 +23,7 @@ public class Championnat {
     private Pays pays;
     @OneToMany(mappedBy = "championnat")
     private List<Journee> journees;
-    @ManyToMany(mappedBy = "championnats")
+    @OneToMany(mappedBy = "championnat")
     private List<Equipe> equipes;
 
     public Championnat(String nom, String logo, Date dateDebut, Date dateFin, int pointGagne, int pointPerdu, int pointNul, String typeCLassement, Pays pays, List<Journee> journees, List<Equipe> equipes) {
@@ -138,6 +138,8 @@ public class Championnat {
     public void setEquipes(List<Equipe> equipes) {
         this.equipes = equipes;
     }
+
+    public void setEquipe(Equipe equipe) {this.equipes.add(equipe);}
 
     @Override
     public String toString() {

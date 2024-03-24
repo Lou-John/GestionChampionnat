@@ -17,18 +17,18 @@ public class Match {
     private Journee journee;
     @ManyToOne
     private Stade stade;
-    @ManyToOne
+    @OneToMany(mappedBy = "equipe1")
     private Equipe equipe1;
-    @ManyToOne
+
+    @OneToMany(mappedBy = "equipe2")
     private Equipe equipe2;
 
-    public Match(Long pointsEquipe, Long pointsEquipe2, Journee journee, Stade stade, Equipe equipe1, Equipe equipe2) {
+    public Match(Long pointsEquipe1, Long pointsEquipe2, Journee journee, Stade stade, List<Equipe> equipes) {
         this.pointsEquipe1 = pointsEquipe1;
         this.pointsEquipe2 = pointsEquipe2;
         this.journee = journee;
         this.stade = stade;
-        this.equipe1 = equipe1;
-        this.equipe2 = equipe2;
+        this.equipes = equipes;
     }
 
     public Match() {
@@ -75,19 +75,19 @@ public class Match {
     }
 
     public Equipe getEquipe1() {
-        return equipe1;
+        return this.equipes.get(0);
     }
 
     public void setEquipe1(Equipe equipe1) {
-        this.equipe1 = equipe1;
+        this.equipes.set(0, equipe1);
     }
 
     public Equipe getEquipe2() {
-        return equipe2;
+        return equipes.get(1);
     }
 
     public void setEquipe2(Equipe equipe2) {
-        this.equipe2 = equipe2;
+        this.equipes.set(1, equipe2);
     }
 
     @Override
@@ -98,8 +98,6 @@ public class Match {
                 ", pointsEquipe2=" + pointsEquipe2 +
                 ", journee=" + journee +
                 ", stade=" + stade +
-                ", equipe1=" + equipe1 +
-                ", equipe2=" + equipe2 +
                 '}';
     }
 }
