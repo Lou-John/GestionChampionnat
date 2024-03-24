@@ -1,7 +1,6 @@
 package com.example.appgestionchampionnat.pojos;
 
 import jakarta.persistence.*;
-
 import java.util.Date;
 import java.util.List;
 
@@ -9,23 +8,28 @@ import java.util.List;
 public class Match {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long match_id;
 
-    private Long pointsEquipe1;
-    private Long pointsEquipe2;;
+    private Long scoreEquipe1;
+    private Long scoreEquipe2;
+
     @ManyToOne
     private Journee journee;
+
     @ManyToOne
     private Stade stade;
-    @OneToMany(mappedBy = "equipe1")
-    private Equipe equipe1;
 
-    @OneToMany(mappedBy = "equipe2")
-    private Equipe equipe2;
+    @ManyToMany
+    @JoinTable(
+            name = "equipe_match",
+            joinColumns = @JoinColumn(name = "match_id"),
+            inverseJoinColumns = @JoinColumn(name = "equipe_id")
+    )
+    private List<Equipe> equipes;
 
-    public Match(Long pointsEquipe1, Long pointsEquipe2, Journee journee, Stade stade, List<Equipe> equipes) {
-        this.pointsEquipe1 = pointsEquipe1;
-        this.pointsEquipe2 = pointsEquipe2;
+    public Match(Long scoreEquipe1, Long scoreEquipe2, Journee journee, Stade stade, List<Equipe> equipes) {
+        this.scoreEquipe1 = scoreEquipe1;
+        this.scoreEquipe2 = scoreEquipe2;
         this.journee = journee;
         this.stade = stade;
         this.equipes = equipes;
@@ -35,27 +39,27 @@ public class Match {
     }
 
     public Long getId() {
-        return id;
+        return match_id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.match_id = id;
     }
 
-    public Long getPointsEquipe1() {
-        return pointsEquipe1;
+    public Long getScoreEquipe1() {
+        return scoreEquipe1;
     }
 
-    public void setPointsEquipe1(Long pointsEquipe1) {
-        this.pointsEquipe1 = pointsEquipe1;
+    public void setScoreEquipe1(Long scoreEquipe1) {
+        this.scoreEquipe1 = scoreEquipe1;
     }
 
-    public Long getPointsEquipe2() {
-        return pointsEquipe2;
+    public Long getScoreEquipe2() {
+        return scoreEquipe2;
     }
 
-    public void setPointsEquipe2(Long pointsEquipe2) {
-        this.pointsEquipe2 = pointsEquipe2;
+    public void setScoreEquipe2(Long scoreEquipe2) {
+        this.scoreEquipe2 = scoreEquipe2;
     }
 
     public Journee getJournee() {
@@ -74,28 +78,19 @@ public class Match {
         this.stade = stade;
     }
 
-    public Equipe getEquipe1() {
-        return this.equipes.get(0);
+    public List<Equipe> getEquipes() {
+        return equipes;
     }
 
-    public void setEquipe1(Equipe equipe1) {
-        this.equipes.set(0, equipe1);
-    }
-
-    public Equipe getEquipe2() {
-        return equipes.get(1);
-    }
-
-    public void setEquipe2(Equipe equipe2) {
-        this.equipes.set(1, equipe2);
+    public void setEquipes(List<Equipe> equipes) {
+        this.equipes = equipes;
     }
 
     @Override
     public String toString() {
         return "Match{" +
-                "id=" + id +
-                ", pointsEquipe1=" + pointsEquipe1 +
-                ", pointsEquipe2=" + pointsEquipe2 +
+                "scoreEquipe1=" + scoreEquipe1 +
+                ", scoreEquipe2=" + scoreEquipe2 +
                 ", journee=" + journee +
                 ", stade=" + stade +
                 '}';

@@ -1,7 +1,9 @@
 package com.example.appgestionchampionnat.pojos;
 
+import com.example.appgestionchampionnat.pojos.Championnat;
+import com.example.appgestionchampionnat.pojos.Match;
+import com.example.appgestionchampionnat.pojos.Stade;
 import jakarta.persistence.*;
-
 import java.util.Date;
 import java.util.List;
 
@@ -20,10 +22,13 @@ public class Equipe {
     private String siege;
     private String telephone;
     private String siteWeb;
+
     @ManyToOne
     private Stade stade;
-    @ManyToMany()
+
+    @ManyToMany(mappedBy = "equipe")
     private List<Match> matchs;
+
     @ManyToOne
     private Championnat championnat;
 
